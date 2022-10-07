@@ -97,10 +97,17 @@ class command:
 
 
             elif command == 'help':
-                print('exit : 退出\n'
-                      'add user : 增加用户\n'
-                      'del user : 删除用户\n'
-                      'switch user : 切换用户\n'
-                      'sitting : 设置')
+                print(
+                    'exit : 退出\n'
+                    'add user : 增加用户\n'
+                    'del user : 删除用户\n'
+                    'switch user : 切换用户\n'
+                    'sitting : 设置'
+                    'UI : 打开界面'
+                )
+
+
+            elif command == 'UI':
+                return 'UI'
             else:
                 print("I don't know this")
