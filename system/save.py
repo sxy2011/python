@@ -9,7 +9,7 @@ class save:
 
     def Saving(self):
         me = open(autoSavePath_SystemUser, 'w')
-        me.write(command.systemUser)
+        me.write(str(command.systemUser))
 
     def autoSavePath_SystemUser(self):
         return autoSavePath_SystemUser
