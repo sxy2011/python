@@ -1,9 +1,11 @@
 import sys
+
 import save
+
 
 class command:
     def __init__(self):
-        global systemName, systemKey, nowstate, systemUser, saving
+        global systemName, systemKey, nowstate, systemUser, saving, set
         saving = save.save()
         systemName = input('systemName:')
         if systemName == '':
@@ -17,6 +19,10 @@ class command:
             systemName: systemKey
         }
         nowstate = systemName
+
+        set = {
+            'autoSave': saving.autoSave()
+        }
 
     def get_input(self):
         global nowstate
@@ -80,9 +86,14 @@ class command:
 
             elif command == 'sitting':
                 nowstate = 'sitting' + nowstate
-                print('1: AutoSave? : ' + saving.autoSave() + '\n'
-                      '')
-
+                print(set)
+                targetSitting = input('ChooseSitting: ')
+                targetValue = input('Value(True / False): ')
+                if (targetValue != True or targetValue != False) and (targetSitting in set.keys()):
+                    set[targetSitting] = targetValue
+                    print('ok')
+                else:
+                    print('error')
 
 
             elif command == 'help':
