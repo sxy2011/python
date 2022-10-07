@@ -1,9 +1,10 @@
 import sys
-
+import save
 
 class command:
     def __init__(self):
-        global systemName, systemKey, nowstate, systemUser
+        global systemName, systemKey, nowstate, systemUser, saving
+        saving = save.save()
         systemName = input('systemName:')
         if systemName == '':
             systemName = 'Administrator'
@@ -79,7 +80,8 @@ class command:
 
             elif command == 'sitting':
                 nowstate = 'sitting' + nowstate
-
+                print('1: AutoSave? : ' + saving.autoSave() + '\n'
+                      '')
 
 
             elif command == 'help':
