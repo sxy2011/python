@@ -1,14 +1,15 @@
+import command
+
+
 class save:
     def __init__(self):
         global autoSavePath_SystemUser, autoSave
-        autoSavePath_SystemUser = open('./Save/SystemUser.txt', 'a')
+        autoSavePath_SystemUser = './Save/SystemUser.txt'
         autoSave = True
 
-    def AutoSaving(self):
-        pass
-
-    def ManualSaving(self):
-        pass
+    def Saving(self):
+        me = open(autoSavePath_SystemUser, 'w')
+        me.write(command.systemUser)
 
     def autoSavePath_SystemUser(self):
         return autoSavePath_SystemUser
