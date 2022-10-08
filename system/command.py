@@ -116,5 +116,5 @@ class command:
             else:
                 print("I don't know this")
 
-    def systemUser():
-        return systemUser
+def systemUser(self):
+    return systemUser
