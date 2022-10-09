@@ -10,6 +10,7 @@ class save:
     def Saving(self):
         me = open(autoSavePath_SystemUser, 'w')
         me.write(str(command.systemUser()))
+        me.close()
 
     def autoSavePath_SystemUser(self):
         return autoSavePath_SystemUser
