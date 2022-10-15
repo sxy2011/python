@@ -17,6 +17,5 @@ class game:
 
         return 1
 
-
 me = game()
 me.main()
