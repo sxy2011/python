@@ -5,6 +5,11 @@ class win:
     def __init__(self):
         self.me = Tk()
         self.me.title('sxy system')
+        self.me.geometry('400x400')
+        canvas = Canvas(self.me, width=400, height=400, bd=0, highlightthickness=0)
+        canvas.pack()
+        self.add_Button_1()
+        self.me.mainloop()
 
     def resize(self, x, y):
         self.me.geometry(x + 'x' + y)
@@ -17,7 +22,5 @@ class win:
         Btn.pack()
 
     def add_Button_1(self):
-        def n_1(): self.me.quit()
-
-        Btn = Button(self.me, text='退出', command=n_1)
-        Btn.pack()
+        Btn = Button(self.me, text='退出', command=self.me.quit)
+        Btn.pack(side='bottom')

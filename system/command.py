@@ -110,7 +110,6 @@ class command:
 
             elif command == 'UI':
                 me = UI_main.win()
-                me.add_Button_1()
 
             elif command == 'save':
                 saving.Saving()
