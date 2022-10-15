@@ -108,8 +108,7 @@ class command:
 
 
             elif command == 'UI':
-                print('Please send exit')
-                return 'UI'
+                pass
 
 
             elif command == 'save':
