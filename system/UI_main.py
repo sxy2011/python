@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 
@@ -6,6 +8,7 @@ class game:
         global WIN, WHITE
         WIDTH, HEIGHT = 800, 500
         WHITE = (255, 255, 255)
+        pygame.init()
         WIN = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption('sxy system')
 
@@ -16,8 +19,7 @@ class game:
                 if event.type == pygame.QUIT:
                     run = False
             self.draw_window()
-
-        return 1
+        sys.exit()
 
     def draw_window(self):
         WIN.fill(WHITE)
