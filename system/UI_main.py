@@ -1,29 +1,23 @@
-import sys
-
-import pygame
+from tkinter import *
 
 
-class game:
+class win:
     def __init__(self):
-        global WIN, WHITE
-        WIDTH, HEIGHT = 800, 500
-        WHITE = (255, 255, 255)
-        pygame.init()
-        WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-        pygame.display.set_caption('sxy system')
+        self.me = Tk()
+        self.me.title('sxy system')
 
-    def main(self):
-        run = True
-        while run:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    run = False
-            self.draw_window()
-        sys.exit()
+    def resize(self, x, y):
+        self.me.geometry(x + 'x' + y)
 
-    def draw_window(self):
-        WIN.fill(WHITE)
-        pygame.display.update()
+    def close(self):
+        self.me.quit()
 
-me = game()
-me.main()
+    def add_Button(self, x, y, title, cmd):
+        Btn = Button(self.me, text=title, command=cmd)
+        Btn.pack()
+
+    def add_Button_1(self):
+        def n_1(): self.me.quit()
+
+        Btn = Button(self.me, text='退出', command=n_1)
+        Btn.pack()

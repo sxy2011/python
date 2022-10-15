@@ -1,5 +1,6 @@
 import sys
 
+import UI_main
 import save
 
 
@@ -108,9 +109,8 @@ class command:
 
 
             elif command == 'UI':
-                import UI_main
-                me = UI_main.game()
-
+                me = UI_main.win()
+                me.add_Button_1()
 
             elif command == 'save':
                 saving.Saving()
