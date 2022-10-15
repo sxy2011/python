@@ -108,7 +108,8 @@ class command:
 
 
             elif command == 'UI':
-                pass
+                import UI_main
+                me = UI_main.game()
 
 
             elif command == 'save':
