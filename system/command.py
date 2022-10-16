@@ -1,5 +1,6 @@
 import sys
 
+import UImain
 import save
 
 
@@ -108,7 +109,13 @@ class command:
 
 
             elif command == 'UI':
-                pass
+                from PyQt5.QtWidgets import QApplication, QMainWindow
+                app = QApplication(sys.argv)
+                mainWindow = QMainWindow()
+                ui = UImain.Ui_MainWindow()
+                ui.setupUi(mainWindow)
+                mainWindow.show()
+                sys.exit(app.exec_())
 
             elif command == 'save':
                 saving.Saving()
