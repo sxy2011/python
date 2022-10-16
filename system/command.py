@@ -1,51 +1,49 @@
 import sys
 
-import UImain
 import save
 
 
 class command:
     def __init__(self):
-        global systemName, systemKey, nowstate, systemUser, saving, set
-        saving = save.save()
-        systemName = input('systemName:')
-        if systemName == '':
+        global systemName, systemKey, nowstate, systemUser, saving, set  # 将所有变量变成全局的
+        saving = save.save()  # 建立保存对象
+        systemName = input('systemName:')  # 询问系统用户名
+        if systemName == '':  # 确定不为空,否则设为默认
             systemName = 'Administrator'
 
-        systemKey = input('systemKey:')
-        if systemKey == '':
+        systemKey = input('systemKey:')  # 询问系统密码
+        if systemKey == '':  # 确定不为空,否则设为默认
             systemKey = '111'
 
-        systemUser = {
+        systemUser = {  # 建立用户列表
             systemName: systemKey
         }
-        nowstate = systemName
+        nowstate = systemName  # 建立目前状态
 
-        set = {
+        set = {  # 建立设置状态
             'autoSave': saving.autoSave()
         }
 
-    def get_input(self):
+    def get_input(self):  # 主要函数
         global nowstate
-        while True:
-            command = input('command ' + nowstate + ' ')
-            if command == 'exit' and not 'sitting' in nowstate:
+        while True:  # 建立主循环,判断命令
+            command = input('command ' + nowstate + ' ')  # 接受命令
+            if command == 'exit' and not 'sitting' in nowstate:  # 判断退出
                 print("bye!")
                 sys.exit()
 
-
-            elif command == 'add user':
-                if nowstate == systemName:
-                    userName = input('userName: ')
-                    userKey = input('userKey: ')
-                    if userName in systemUser:
+            elif command == 'add user':  # 判断增加用户
+                if nowstate == systemName:  # 只有管理员才能增加用户
+                    userName = input('userName: ')  # 询问用户名
+                    userKey = input('userKey: ')  # 询问用户密码
+                    if userName in systemUser:  # 判断是否重复
                         print('Existing users')
                     else:
+                        # 检测成功,开始设置
                         systemUser[userName] = userKey
                         print('ok')
                 else:
                     print('you are not Administrator')
-
 
             elif command == 'del user':
                 if nowstate == systemName:
@@ -109,13 +107,7 @@ class command:
 
 
             elif command == 'UI':
-                from PyQt5.QtWidgets import QApplication, QMainWindow
-                app = QApplication(sys.argv)
-                mainWindow = QMainWindow()
-                ui = UImain.Ui_MainWindow()
-                ui.setupUi(mainWindow)
-                mainWindow.show()
-                sys.exit(app.exec_())
+                pass
 
             elif command == 'save':
                 saving.Saving()
