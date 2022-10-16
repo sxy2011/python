@@ -1,6 +1,5 @@
 import sys
 
-import UI_main
 import save
 
 
@@ -109,7 +108,7 @@ class command:
 
 
             elif command == 'UI':
-                me = UI_main.win()
+                pass
 
             elif command == 'save':
                 saving.Saving()
