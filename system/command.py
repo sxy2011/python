@@ -107,7 +107,7 @@ class command:
 
 
             elif command == 'UI':
-                pass
+                import UImain
 
             elif command == 'save':
                 saving.Saving()
