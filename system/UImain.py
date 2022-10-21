@@ -10,7 +10,7 @@ win = QWidget()
 # 设置
 win.setWindowTitle('system of sxy')
 win.setWindowIcon(QIcon("D:\pythonStudy\python\system\Assets\图标.jpeg"))
-QToolTip.setFont(QFont(''))
+QToolTip.setFont(QFont('隶书', 15))
 win.setToolTip('sxy system')
 
 # 显示
