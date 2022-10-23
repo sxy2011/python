@@ -10,8 +10,6 @@ win = QWidget()
 # 设置
 win.setWindowTitle('system of sxy')
 win.setWindowIcon(QIcon("D:\\pythonStudy\\python\\system\\Assets\\图标.jpeg"))
-QToolTip.setFont(QFont('隶书', 15))
-win.setToolTip('sxy system')
 win.setGeometry(300, 200, 400, 340)
 exit_ = QPushButton('关闭', win)
 exit_.move(350, 300)
