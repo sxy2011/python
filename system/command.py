@@ -105,7 +105,6 @@ class command:
                     'UI : 打开界面'
                 )
 
-
             elif command == 'UI':
                 import UImain
 
