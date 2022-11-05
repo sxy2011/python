@@ -22,9 +22,11 @@ class UI_class(QWidget):
         self.exit_.clicked.connect(self.close)
 
     def closeEvent(self, QCloseEvent):
-        self.exit_q = QMessageBox.question(self, '?', '你确定要关闭吗?', QMessageBox.Yes | QMessageBox.No,
-                                           QMessageBox.Yes)
-
+        self.exit_q = QMessageBox.question(self, '?', '你确定要关闭吗?', QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+        if self.exit_q == QMessageBox.Yes:
+            QCloseEvent.accept()
+        else:
+            QCloseEvent.ignore()
 
 app = QApplication(sys.argv)
 win = UI_class()
