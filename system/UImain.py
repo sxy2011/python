@@ -1,24 +1,32 @@
 import sys
-import function
 from PyQt5.QtGui import QIcon, QFont
 from PyQt5.QtWidgets import QApplication, QWidget, QToolTip, QPushButton, QMessageBox
 
-# 实例化
+
+# noinspection PyTypeChecker
+class UI_class(QWidget):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle('system of sxy')
+        self.setWindowIcon(QIcon("D:\\pythonStudy\\python\\system\\Assets\\图标.jpeg"))
+        self.resize(600, 400)
+        QToolTip.setFont(QFont('隶书', 15))
+        self.setToolTip('sxy system')
+        self.exit_ = QPushButton('关闭', self)
+        self.exit_.show()
+        self.exit_.move(525, 375)
+        self.show()
+        self.exit_.clicked.connect(self.close)
+
+    def closeEvent(self, QCloseEvent):
+        self.exit_q = QMessageBox.question(self, '?', '你确定要关闭吗?', QMessageBox.Yes | QMessageBox.No,
+                                           QMessageBox.Yes)
+
+
 app = QApplication(sys.argv)
-win = QWidget()
-
-# 设置
-fun = function.function()
-win.setWindowTitle('system of sxy')
-win.setWindowIcon(QIcon("D:\\pythonStudy\\python\\system\\Assets\\图标.jpeg"))
-QToolTip.setFont(QFont('隶书', 15))
-win.setToolTip('sxy system')
-win.setGeometry(300, 230, 400, 340)
-exit_ = QPushButton('关闭', win)
-exit_.move(300, 300)
-exit_.show()
-exit_.clicked.connect(fun.exit_1())
-
-# 显示
-win.show()
+win = UI_class()
+win.initUI()
 sys.exit(app.exec_())
