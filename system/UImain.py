@@ -40,7 +40,7 @@ class UI_class(QWidget):
 	
 	def createButton_relatively(self, text=str, x=int, y=int, width=int, height=int, con=any):
 		self.btn_control = QHBoxLayout(self)
-		self.btn = QPushButton
+		self.btn = QPushButton(text, self)
 		self.btn_control.addWidget(self)
 		self.btn.show()
 		self.btn.resize(width, height)
